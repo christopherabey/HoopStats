@@ -55,6 +55,8 @@ function Steph(props){
                     newPlayerValue,
                     "totals"
                 );
+              
+                // console.log(result4);
           
               result4.forEach((results) => {
                 //   console.log(results);
