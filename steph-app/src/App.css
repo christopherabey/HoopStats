@@ -15,7 +15,7 @@
 
 .App-header {
   /* background-color: #282c34; */
-  background-image: url("https://static01.nyt.com/images/2021/05/04/sports/03NBA-jokic-print/03NBA-jokic-superJumbo.jpg");
+  /* background-image: url("https://static01.nyt.com/images/2021/05/04/sports/03NBA-jokic-print/03NBA-jokic-superJumbo.jpg"); */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
