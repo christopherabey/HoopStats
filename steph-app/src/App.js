@@ -7,7 +7,10 @@ import {dict} from './dictionary'
 function App() {
 
   //this is for the new code
-  const [backStyle, setBackStyle] = useState({backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/2/27/Damian_Lillard_vs_Russel_Westbrook_%2823680791964%29.jpg")'});
+
+  const stadiumPictures = ["https://upload.wikimedia.org/wikipedia/commons/a/a1/Portland_Trail_Blazers_at_Moda_Center%2C_December_2013_-_01.JPG","https://live.staticflickr.com/65535/48991070278_95a302ccfb_b.jpg", "https://upload.wikimedia.org/wikipedia/commons/5/5c/NBA_-_February_2014_-_Celtics_vs_Spurs_-_TD_Garden_-_15.JPG", "https://upload.wikimedia.org/wikipedia/commons/5/59/New-York_Knicks_in_the_Madison_Square_Garden_%286054203290%29.jpg", "https://www.reddeeradvocate.com/wp-content/uploads/2021/12/27557769_web1_20211216131244-61bb89db0064a9b22ab3d1d1jpeg.jpg", "https://upload.wikimedia.org/wikipedia/commons/3/30/Toyota_Center_Game_7_2018_playoffs.jpg", "https://upload.wikimedia.org/wikipedia/commons/f/fe/Detroit_Pistons_vs._Dallas_Mavericks_February_2022_01_%28in-game_action%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/9/9a/FedExForum_2015.jpg", "https://upload.wikimedia.org/wikipedia/commons/b/b2/Quicken_Loans_Arena_WV_photo.jpg", "https://upload.wikimedia.org/wikipedia/commons/c/c2/G1C_Interior.jpg"];
+
+  const [backStyle, setBackStyle] = useState({backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/c/c2/G1C_Interior.jpg")'});
 
   let found = false;
 
@@ -63,6 +66,11 @@ function App() {
           found = true;
           setBackStyle({ backgroundImage: 'url(' + dict[key] + ')' })
         }
+      }
+
+      if(!found){
+        let randomIndex = Math.floor(Math.random() * stadiumPictures.length);
+        setBackStyle({ backgroundImage: 'url(' + stadiumPictures[randomIndex] +  ')' })
       }
       //end new code
       setHeadingText(formattedPlayer);
