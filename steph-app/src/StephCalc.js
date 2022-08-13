@@ -44,6 +44,8 @@ function Steph(props){
     //useEffect gets rendered every time the page updates/if state is updated
     React.useEffect(() => {
 
+        console.log(window.innerWidth);
+
         console.log("useEffect");
 
         const getToken = () => {

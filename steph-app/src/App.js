@@ -2,7 +2,8 @@ import Steph from './StephCalc';
 import Footer from './Footer';
 import {useState} from 'react';
 import './App.css';
-import {dict} from './dictionary'
+import {compdict} from './dictionaries/computerdictionary'
+import {phonedict} from './dictionaries/phonedictionary'
 
 function App() {
 
@@ -59,12 +60,16 @@ function App() {
 
       console.log(onePlayer);
 
-      for(var key in dict){
+      let dictionary = {};
+
+      window.innerWidth > 415 ? dictionary = compdict : dictionary = phonedict;
+
+      for(var key in dictionary){
         // console.log(key)
         if(key === onePlayer){
-          console.log(dict[key])
+          console.log(dictionary[key])
           found = true;
-          setBackStyle({ backgroundImage: 'url(' + dict[key] + ')' })
+          setBackStyle({ backgroundImage: 'url(' + dictionary[key] + ')' })
         }
       }
 

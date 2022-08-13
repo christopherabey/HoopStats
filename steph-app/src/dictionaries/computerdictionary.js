@@ -1,6 +1,4 @@
-let dict = {};
-
-window.innerWidth > 415 ? dict = {
+let compdict = {
     abdulka: "https://i.imgur.com/4cpZrfU.jpeg",
     allenja: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Cleveland_Cavaliers_vs._Brooklyn_Nets_-_32170469167.jpg/1599px-Cleveland_Cavaliers_vs._Brooklyn_Nets_-_32170469167.jpg?20190216233048",
     allenra: "https://upload.wikimedia.org/wikipedia/commons/8/86/Ray_Allen_et_Doc_Rivers.jpg",
@@ -73,7 +71,5 @@ window.innerWidth > 415 ? dict = {
     westbru: "https://live.staticflickr.com/65535/51959666851_0d56c2b87b_b.jpg",
     wilkido: "https://cdn.nba.com/manage/2018/05/wilkins_bird_1988.jpg",
     worthja: "https://d1l5jyrrh5eluf.cloudfront.net/wp-content/uploads/2018/01/GettyImages-1319867581.jpg"
-  } : dict = {
-
-  };
-  export {dict};
+  }; 
+  export {compdict};
