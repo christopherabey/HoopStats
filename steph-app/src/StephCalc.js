@@ -55,10 +55,16 @@ function Steph(props){
                     newPlayerValue,
                     "totals"
                 );
+
+                settotPoints(0);
+                settotThree(0);
+                settotAssists(0);
+                settotRebounds(0);
+                setppg(0);
               
                 // console.log(result4);
           
-              result4.forEach((results) => {
+                result4.forEach((results) => {
                 //   console.log(results);
                   totalPoints += parseInt(results.points);
                   settotPoints(totalPoints);
