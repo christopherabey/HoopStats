@@ -10,7 +10,7 @@ function App() {
 
   const stadiumPictures = ["https://upload.wikimedia.org/wikipedia/commons/a/a1/Portland_Trail_Blazers_at_Moda_Center%2C_December_2013_-_01.JPG","https://live.staticflickr.com/65535/48991070278_95a302ccfb_b.jpg", "https://upload.wikimedia.org/wikipedia/commons/5/5c/NBA_-_February_2014_-_Celtics_vs_Spurs_-_TD_Garden_-_15.JPG", "https://upload.wikimedia.org/wikipedia/commons/5/59/New-York_Knicks_in_the_Madison_Square_Garden_%286054203290%29.jpg", "https://www.reddeeradvocate.com/wp-content/uploads/2021/12/27557769_web1_20211216131244-61bb89db0064a9b22ab3d1d1jpeg.jpg", "https://upload.wikimedia.org/wikipedia/commons/3/30/Toyota_Center_Game_7_2018_playoffs.jpg", "https://upload.wikimedia.org/wikipedia/commons/f/fe/Detroit_Pistons_vs._Dallas_Mavericks_February_2022_01_%28in-game_action%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/9/9a/FedExForum_2015.jpg", "https://upload.wikimedia.org/wikipedia/commons/b/b2/Quicken_Loans_Arena_WV_photo.jpg", "https://upload.wikimedia.org/wikipedia/commons/c/c2/G1C_Interior.jpg"];
 
-  const [backStyle, setBackStyle] = useState({backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/c/c2/G1C_Interior.jpg")'});
+  const [backStyle, setBackStyle] = useState({backgroundImage: 'url("https://64.media.tumblr.com/d0d35d169ce18a126a981c0711889e2a/31b08f0b993a723f-b6/s540x810/93f3b0bc85f70fbcc045c0384645c73b4a616083.gifv")'});
 
   let found = false;
 
@@ -82,7 +82,7 @@ function App() {
     <div className="App">
       <header className="App-header" style={backStyle}>
 
-        <input value={name} onKeyDown={handleKeyDown} onChange={handleChange} type="search" placeholder="Search for NBA Players"></input>
+        <input spellcheck="false" value={name} onKeyDown={handleKeyDown} onChange={handleChange} type="search" placeholder="Search for NBA Players"></input>
 
         <h1>{headingText} Statistics</h1>
  
