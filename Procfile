@@ -1,1 +1,1 @@
-worker: nodemon scraper.js
+worker: node scraper.js
