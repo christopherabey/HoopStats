@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
     // console.log(req.body);
 
     console.log("made a get request");
-    // res.send("hi there");
+    res.send("hi there");
 
     
 })
