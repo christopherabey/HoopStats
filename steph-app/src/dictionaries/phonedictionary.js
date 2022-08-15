@@ -1,4 +1,0 @@
-let phonedict = {
-
-};
-export {phonedict};
