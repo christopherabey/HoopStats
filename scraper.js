@@ -1,5 +1,5 @@
 const PORT = process.env.PORT || 8000;
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const express = require("express");
 const app = express();
