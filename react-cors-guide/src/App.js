@@ -34,41 +34,52 @@ function App() {
     setppg(0);
 
     let onePlayer = "";
-      let dummyBool = false;
-      let counter = 0;
+    let dummyBool = false;
+    let counter = 0;
 
-      for(var i = 0; i < playerName.length; i++){
+    for(var i = 0; i < playerName.length; i++){
         
-        if(dummyBool && counter<5){
-            onePlayer += playerName[i].toLowerCase();
-            counter++;
+      if(dummyBool && counter<5){
+        //account for names like shaquille o'neal
+        if(playerName[i] !== "'"){
+          onePlayer += playerName[i].toLowerCase();
+        } else {
+          counter--;
         }
         
-        if(playerName[i] === " "){
-            dummyBool = true;
-        }  
+        counter++;
       }
+        
+      if(playerName[i] === " "){
+        dummyBool = true;
+      }  
+    }
 
-      onePlayer += playerName[0].toLowerCase();
+    onePlayer += playerName[0].toLowerCase();
+    //account for names with ' like d'angelo russell
+    if(playerName[1]!=="'"){
       onePlayer += playerName[1].toLowerCase();
+    } else {
+      onePlayer += playerName[2].toLowerCase();
+    }
+    
+    let dictionary = {};
+    //this accounts for viewport size, different images will appear depending on the device used
+    window.innerWidth > 600 ? dictionary = compdict : dictionary = phonedict;
 
-      let dictionary = {};
-
-      window.innerWidth > 600 ? dictionary = compdict : dictionary = phonedict;
-
-      for(var key in dictionary){
-        // console.log(key)
-        if(key === onePlayer){
-          console.log(dictionary[key])
-          found = true;
-          setBackStyle({ backgroundImage: 'url(' + dictionary[key] + ')' })
-        }
+    for(var key in dictionary){
+      // console.log(key)
+      if(key === onePlayer){
+        console.log(dictionary[key])
+        found = true;
+        setBackStyle({ backgroundImage: 'url(' + dictionary[key] + ')' })
       }
-
-      if(!found){
-        let randomIndex = Math.floor(Math.random() * stadiumPictures.length);
-        setBackStyle({ backgroundImage: 'url(' + stadiumPictures[randomIndex] +  ')' })
-      }
+    }
+    //if there's no saved picture of the player, set the background image to be a random stadium picture
+    if(!found){
+      let randomIndex = Math.floor(Math.random() * stadiumPictures.length);
+      setBackStyle({ backgroundImage: 'url(' + stadiumPictures[randomIndex] +  ')' })
+    }
 
     console.log("this is the formatted player name: " + onePlayer);
 
