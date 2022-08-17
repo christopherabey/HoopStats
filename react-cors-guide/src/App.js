@@ -81,10 +81,7 @@ function App() {
       setBackStyle({ backgroundImage: 'url(' + stadiumPictures[randomIndex] +  ')' })
     }
 
-    console.log("this is the formatted player name: " + onePlayer);
-
     try {
-      console.log("fetching data now.");
       fetch('https://hoop-stats.herokuapp.com/', {
         method: 'post',
         headers: {
@@ -95,8 +92,6 @@ function App() {
         mode:'cors'}) 
       .then(response => response.json())
       .then(data => {
-
-        console.log("starting calculations.");
       
         data.forEach((results) => {
           // console.log(results)
@@ -147,7 +142,6 @@ function App() {
 
     setHeadingText(formattedPlayer);
     setName('');
-    console.log("Form was submitted.")
 
   }
   
