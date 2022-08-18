@@ -1,5 +1,6 @@
 let compdict = {
     // abdulka: "https://i.imgur.com/4cpZrfU.jpeg",
+    // abeych: "http://www.ellisbirdfarm.ca/uploads/2/4/0/2/24020064/welcome-chris-abey-2-web_orig.jpg",
     allenja: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Cleveland_Cavaliers_vs._Brooklyn_Nets_-_32170469167.jpg/1599px-Cleveland_Cavaliers_vs._Brooklyn_Nets_-_32170469167.jpg?20190216233048",
     allenra: "https://upload.wikimedia.org/wikipedia/commons/8/86/Ray_Allen_et_Doc_Rivers.jpg",
     antetgi: "https://upload.wikimedia.org/wikipedia/commons/4/40/Giannis_Antetokounmpo_vs_Washington_Wizards%2C_December_12th_2016.jpg",

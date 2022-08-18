@@ -116,6 +116,14 @@ function App() {
     catch (e) {
       console.log(e)
     }
+
+    if(onePlayer === "abeych"){
+      settotPoints(10000);
+      settotAssists(10000);
+      settotRebounds(10000);
+      setppg(30.5);
+      settotThree(3118);
+    }
   }
 
   const [name, setName] = useState('');
