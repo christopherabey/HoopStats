@@ -158,7 +158,7 @@ function App() {
       <header className="App-header" style={backStyle}>
 
         <form action="http://localhost:8000/" method="post" onSubmit={handleSubmit}>
-          <input spellcheck="false" name="name1" value={name}  onChange={handleChange} type="search" placeholder="Search for NBA Players"></input>
+          <input autocomplete="off" spellcheck="false" name="name1" value={name}  onChange={handleChange} type="search" placeholder="Search for NBA Players"></input>
         </form>
 
         <h1>{headingText} Statistics</h1>
