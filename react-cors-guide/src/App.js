@@ -17,6 +17,7 @@ function App() {
   const [totAssists, settotAssists] = useState(0);
   const [totRebounds, settotRebounds] = useState(0);
   const [ppg, setppg] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   let totalPoints = 0;
   let totalGames = 0;
@@ -82,6 +83,7 @@ function App() {
     }
 
     try {
+      setLoading(true);
       fetch('https://hoop-stats.herokuapp.com/', {
         method: 'post',
         headers: {
@@ -108,6 +110,7 @@ function App() {
 
           pointsPerGame = Math.round((totalPoints / totalGames) * 10) / 10;
           setppg(pointsPerGame);
+          setLoading(false);
           
       });
       })
@@ -162,8 +165,8 @@ function App() {
         </form>
 
         <h1>{headingText} Statistics</h1>
- 
-        <p>
+
+        {loading ? <h2>Loading...</h2>: <><p>
           Welcome to the statistics of the National Basketball Association.
         </p>
 
@@ -173,7 +176,9 @@ function App() {
         <h2>Career rebounds: {totRebounds}</h2>
         <h2>Career points per game: {ppg}</h2>
         <h2>Career threes made: {totThree}</h2>
-      </div>
+      </div></>}
+ 
+        
         
       </header>
 
