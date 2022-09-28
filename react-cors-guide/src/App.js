@@ -163,7 +163,7 @@ function App() {
     <div className="App">
       <header className="App-header" style={backStyle}>
 
-        <form action="http://localhost:8000/" method="post" onSubmit={handleSubmit}>
+        <form action="/" method="post" onSubmit={handleSubmit}>
           <input autocomplete="off" spellcheck="false" name="name1" value={name}  onChange={handleChange} type="search" placeholder="Search for NBA Players"></input>
         </form>
 
