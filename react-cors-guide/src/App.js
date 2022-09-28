@@ -83,7 +83,7 @@ function App() {
     }
 
     try {
-      setLoading(true);
+      // setLoading(true);
       fetch('https://hoop-stats.herokuapp.com/', {
         method: 'post',
         headers: {
