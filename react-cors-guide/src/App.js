@@ -110,7 +110,6 @@ function App() {
 
           pointsPerGame = Math.round((totalPoints / totalGames) * 10) / 10;
           setppg(pointsPerGame);
-          setLoading(false);
           
       });
       })
@@ -119,6 +118,8 @@ function App() {
     catch (e) {
       console.log(e)
     }
+
+    setLoading(false);
 
     if(onePlayer === "abeych"){
       settotPoints(10000);
