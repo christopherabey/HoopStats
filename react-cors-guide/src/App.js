@@ -121,7 +121,7 @@ function App() {
       setLoading(false)
     }
 
-    // setLoading(false);
+    setLoading(false);
 
     if(onePlayer === "abeych"){
       settotPoints(10000);
