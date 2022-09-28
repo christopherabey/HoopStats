@@ -28,6 +28,8 @@ function App() {
    
   const makeAPICall = async (playerName) => {
 
+    setLoading(true);
+
     settotPoints(0);
     settotThree(0);
     settotAssists(0);
@@ -83,7 +85,7 @@ function App() {
     }
 
     try {
-      setLoading(true);
+      
       fetch('https://hoop-stats.herokuapp.com/', {
         method: 'post',
         headers: {
@@ -110,18 +112,18 @@ function App() {
 
           pointsPerGame = Math.round((totalPoints / totalGames) * 10) / 10;
           setppg(pointsPerGame);
-          setLoading(false)
-          
       });
+
+      setLoading(false)
       })
-      
+
     }
     catch (e) {
       console.log(e)
       setLoading(false)
     }
 
-    setLoading(false);
+    // setLoading(false)
 
     if(onePlayer === "abeych"){
       settotPoints(10000);
@@ -153,7 +155,6 @@ function App() {
     }
 
     makeAPICall(name);
-
     setHeadingText(formattedPlayer);
     setName('');
 
@@ -169,7 +170,8 @@ function App() {
 
         <h1>{headingText} Statistics</h1>
 
-        {loading ? <h2>Loading...</h2>: <><p>
+        {loading ? <h2>Loading...</h2>: (
+        <><p>
           Welcome to the statistics of the National Basketball Association.
         </p>
 
@@ -179,10 +181,8 @@ function App() {
         <h2>Career rebounds: {totRebounds}</h2>
         <h2>Career points per game: {ppg}</h2>
         <h2>Career threes made: {totThree}</h2>
-      </div></>}
+      </div></>)}
  
-        
-        
       </header>
 
       <Footer />
