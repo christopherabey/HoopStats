@@ -1,7 +1,6 @@
 const PORT = process.env.PORT || 8000;
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const cheerio = require('cheerio');
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -22,51 +21,80 @@ app.get("/", (req, res) => {
     // console.log(req.body);
 
     console.log("made a get request");
-    res.send("hi there");
+    res.send("i miss the old kanye");
 
-    
 })
 
 app.post("/", function(req, res){
     // console.log("hi");
     // res.send(req.body);
-    console.log(req.body.name);
+    // console.log(req.body.name);
 
     const getPlayerStats = async (id) => {
     
-        if (id.length === 0)
+        if (id == undefined)
             return null;
     
         // Get HTML from BBREF and turn into text data
-        const $ = await fetch(`https://www.basketball-reference.com/players/${id.charAt(0)}/${id}.html`)
+        const playerId = await fetch(`https://balldontlie.io/api/v1/players?search=${id}`)
             .then(async (result) => {
-                const body = await result.text();
-                return(cheerio.load(body));
+                const body = await result.json();
+                if (body.data.length === 0)
+                    return null;
+
+                return body.data[0].id;
+                // return(cheerio.load(body));
             });
-        const statList = [];
-    
-            // Get indeces
-            let indeces = PLAYER_STAT_INDEX;
+
+        console.log(playerId);
+        if (playerId == null){
+            res.json(
+            {
+                games_played: 0,
+                player_id: 0,
+                season: 0,
+                min: '0:00',
+                fgm: 0,
+                fga: 0,
+                fg3m: 0,
+                fg3a: 0,
+                ftm: 0,
+                fta: 0,
+                oreb: 0,
+                dreb: 0,
+                reb: 0,
+                ast: 0,
+                stl: 0,
+                blk: 0,
+                turnover: 0,
+                pf: 0,
+                pts: 0,
+                fg_pct: 0,
+                fg3_pct: 0,
+                ft_pct: 0
+              })
+
+              return;
+        }
+
+        const playerStats = await fetch(`https://balldontlie.io/api/v1/season_averages?season=2021&player_ids[]=${playerId}`)
+            .then(async (result) => {
+                const body = await result.json();
+                if (body.data.length === 0)
+                    return null;
+
+                return body.data[0];
             
-            indeces.push('triple_doubles', 'triple_doubles');
         
-            // Form list with table data
-            $(`table[id=totals]`).find('tbody > tr').each((i, rows) => {
-                let season = {};
-                $(rows).find('td, th').each((i, data) => {
-                    season[indeces[i]] = $(data).text();
-                })
-                statList.push(season);
             });
-    
-            // console.log(statList);
-            res.json(statList);
-        
-            return statList;
+
+        // console.log(playerStats);
+
+        res.json(playerStats);
         
     }
     
-    getPlayerStats(req.body.name + "01");
+    getPlayerStats(req.body.name);
 })
 
 app.listen(PORT, () => {

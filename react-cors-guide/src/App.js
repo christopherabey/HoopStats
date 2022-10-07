@@ -12,29 +12,30 @@ function App() {
 
   let found = false;
 
-  const [totThree, settotThree] = useState(0);
-  const [totPoints, settotPoints] = useState(0);
-  const [totAssists, settotAssists] = useState(0);
-  const [totRebounds, settotRebounds] = useState(0);
   const [ppg, setppg] = useState(0);
+  const [apg, setapg] = useState(0);
+  const [rpg, setrpg] = useState(0);
+  const [mpg, setmpg] = useState('0');
+  const [tpp, settpp] = useState(0);
+
   const [loading, setLoading] = useState(false);
 
-  let totalPoints = 0;
-  let totalGames = 0;
-  let total3Made = 0;
-  let totalAssists = 0;
-  let totalRebounds = 0;
-  let pointsPerGame = 0;
+  // let totalPoints = 0;
+  // let totalGames = 0;
+  // let total3Made = 0;
+  // let totalAssists = 0;
+  // let totalRebounds = 0;
+  // let pointsPerGame = 0;
    
   const makeAPICall = async (playerName) => {
 
     setLoading(true);
 
-    settotPoints(0);
-    settotThree(0);
-    settotAssists(0);
-    settotRebounds(0);
     setppg(0);
+    setapg(0);
+    setrpg(0);
+    setmpg('0');
+    settpp(0);
 
     let onePlayer = "";
     let dummyBool = false;
@@ -65,7 +66,9 @@ function App() {
     } else {
       onePlayer += playerName[2].toLowerCase();
     }
-    
+
+    console.log(onePlayer)
+
     let dictionary = {};
     //this accounts for viewport size, different images will appear depending on the device used
     window.innerWidth > 600 ? dictionary = compdict : dictionary = phonedict;
@@ -86,52 +89,63 @@ function App() {
 
     try {
       
-      fetch('https://hoop-stats.herokuapp.com/', {
+      fetch('http://localhost:8000/', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({"name": onePlayer}),
+        body: JSON.stringify({"name": name}),
         mode:'cors'}) 
       .then(response => response.json())
       .then(data => {
+
+        console.log(data);
+
+        setppg(data.pts);
+        setapg(data.ast);
+        setrpg(data.reb);
+        setmpg(data.min);
+        settpp(data.fg3_pct);
       
-        data.forEach((results) => {
-          // console.log(results)
-          // console.log(results.points);
-          totalPoints += parseInt(results.points);
-          settotPoints(totalPoints);
-          totalGames += parseInt(results.games_played);
-          total3Made += parseInt(results.threes_made);
-          settotThree(total3Made);
-          totalAssists += parseInt(results.assists);
-          settotAssists(totalAssists);
-          totalRebounds += parseInt(results.tot_rebounds);
-          settotRebounds(totalRebounds);
+      //   data.forEach((results) => {
+      //     // console.log(results)
+      //     // console.log(results.points);
+      //     totalPoints += parseInt(results.points);
+      //     settotPoints(totalPoints);
+      //     totalGames += parseInt(results.games_played);
+      //     total3Made += parseInt(results.threes_made);
+      //     settotThree(total3Made);
+      //     totalAssists += parseInt(results.assists);
+      //     settotAssists(totalAssists);
+      //     totalRebounds += parseInt(results.tot_rebounds);
+      //     settotRebounds(totalRebounds);
 
-          pointsPerGame = Math.round((totalPoints / totalGames) * 10) / 10;
-          setppg(pointsPerGame);
-      });
+      //     pointsPerGame = Math.round((totalPoints / totalGames) * 10) / 10;
+      //     setppg(pointsPerGame);
+      // });
+        if(name === "Chris Abey" || name === "chris abey" || name === "Chris abey" || name === "chris Abey"){
+          setppg(30.5);
+          setapg(10);
+          setrpg(10);
+          setmpg('40');
+          settpp(0.45);
+        }
 
-      setLoading(false)
+        setLoading(false)
       })
 
     }
     catch (e) {
       console.log(e)
+      
       setLoading(false)
     }
 
     // setLoading(false)
+    
 
-    if(onePlayer === "abeych"){
-      settotPoints(10000);
-      settotAssists(10000);
-      settotRebounds(10000);
-      setppg(30.5);
-      settotThree(3118);
-    }
+    
   }
 
   const [name, setName] = useState('');
@@ -176,11 +190,11 @@ function App() {
         </p>
 
         <div>
-        <h2>Career points: {totPoints}</h2>
-        <h2>Career assists: {totAssists}</h2>
-        <h2>Career rebounds: {totRebounds}</h2>
-        <h2>Career points per game: {ppg}</h2>
-        <h2>Career threes made: {totThree}</h2>
+        <h2>Points Per Game: {ppg}</h2>
+        <h2>Assists Per Game: {apg}</h2>
+        <h2>Rebounds Per Game: {rpg}</h2>
+        <h2>Minutes per game: {mpg}</h2>
+        <h2>Three Point Percentage: {tpp}</h2>
       </div></>)}
  
       </header>
