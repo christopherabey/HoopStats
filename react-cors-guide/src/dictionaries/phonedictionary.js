@@ -1,0 +1,27 @@
+let phonedict = {
+    bryanko: "https://live.staticflickr.com/336/19075936023_85aac69093_b.jpg",
+    curryst: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Stephen_Curry_%2833139311636%29.jpg",
+    duncati: "https://upload.wikimedia.org/wikipedia/commons/1/14/Tim_Duncan.jpg",
+    ervinju: "https://upload.wikimedia.org/wikipedia/commons/e/eb/JuliusErvingSlamDunk1981.jpg",
+    ewingpa: "https://live.staticflickr.com/7301/10821888436_4ed6354e59_b.jpg",
+    garneke: "https://upload.wikimedia.org/wikipedia/commons/6/60/Kevin_Garnett_2008-01-13.jpg",
+    hardeja: "https://upload.wikimedia.org/wikipedia/commons/1/1b/James_Harden_looking_down.jpg",
+    jamesle: "https://upload.wikimedia.org/wikipedia/commons/b/b2/LeBron_James_%2815662939969%29.jpg",
+    kiddja: "https://upload.wikimedia.org/wikipedia/commons/2/27/Jason_Kidd_mavs_allison.jpg",
+    leonaka: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Kawhi_Leonard_Dunk_cropped.jpg",
+    lillada: "https://upload.wikimedia.org/wikipedia/commons/2/26/Damian_Lillard_against_the_Cleveland_Cavaliers_%28cropped%29.jpg",
+    mchalke: "https://upload.wikimedia.org/wikipedia/commons/8/84/Lipofsky-Kevin_McHale.jpg",
+    nashst: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Steve_Nash_perfil.jpg",
+    nowitdi: "https://upload.wikimedia.org/wikipedia/commons/7/7c/DirkNowitzki.jpg",
+    onealsh: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Shaquille_O%27Neal_Free_Throw.jpg",
+    parisro: "https://upload.wikimedia.org/wikipedia/commons/9/92/Robert_Parish_%289516906179%29.jpg",
+    paytoga: "https://upload.wikimedia.org/wikipedia/commons/8/8e/PaytonHeat.jpg",
+    piercpa: "https://upload.wikimedia.org/wikipedia/commons/5/58/Paul_Pierce_2008-01-13.jpg",
+    roberos: "https://media.snl.no/media/176462/standard_compressed_Oscar_Robertson_1960s.jpeg.jpeg.jpg",
+    robinda: "https://cdn10.picryl.com/photo/1987/08/01/ensign-david-robinson-tries-to-get-open-during-a-basketball-game-against-the-62dc73-1600.jpg",
+    stockjo: "https://upload.wikimedia.org/wikipedia/commons/9/95/John_Stockton_Lipofskydotcom-32245.jpg",
+    wadedw: "https://upload.wikimedia.org/wikipedia/commons/7/73/Dwyane_Wade_e1.jpg",
+    waltobi: "https://live.staticflickr.com/4021/35615479256_49c90fe3a1_b.jpg",
+    westbru: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Russell_Westbrook.jpg"
+};
+export {phonedict};
