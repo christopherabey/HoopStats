@@ -16,7 +16,7 @@ function App() {
   const [apg, setapg] = useState(0);
   const [rpg, setrpg] = useState(0);
   const [mpg, setmpg] = useState('0');
-  const [tpp, settpp] = useState(0);
+  const [tpp, settpp] = useState('0');
 
   const [loading, setLoading] = useState(false);
 
@@ -38,11 +38,30 @@ function App() {
     settpp(0);
 
     let onePlayer = "";
-    let dummyBool = false;
     let counter = 0;
+    let dummyBool = false;
+    let spaceFlag = false;
+    let flag = false;
+    let first = "";
+    let last = "";
 
     for(var i = 0; i < playerName.length; i++){
-        
+      if(flag === false && playerName[i] !== " "){
+        first += playerName[i];
+      } else {
+        flag = true;
+      }
+
+      if(flag === true){
+        if(spaceFlag === false){
+          i++;
+          spaceFlag = true;
+        }
+        last += playerName[i];
+      }
+    }
+
+    for(let i = 0; i < playerName.length; i++){
       if(dummyBool && counter<5){
         //account for names like shaquille o'neal
         if(playerName[i] !== "'"){
@@ -66,8 +85,6 @@ function App() {
     } else {
       onePlayer += playerName[2].toLowerCase();
     }
-
-    console.log(onePlayer)
 
     let dictionary = {};
     //this accounts for viewport size, different images will appear depending on the device used
@@ -95,35 +112,19 @@ function App() {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({"name": name}),
+        body: JSON.stringify({"first": first, "last": last}),
         mode:'cors'}) 
       .then(response => response.json())
       .then(data => {
 
-        console.log(data);
+        let threePP = Math.round(data.fg3_pct * 10000) / 100;
 
         setppg(data.pts);
         setapg(data.ast);
         setrpg(data.reb);
         setmpg(data.min);
-        settpp(data.fg3_pct);
+        settpp(threePP + "%");
       
-      //   data.forEach((results) => {
-      //     // console.log(results)
-      //     // console.log(results.points);
-      //     totalPoints += parseInt(results.points);
-      //     settotPoints(totalPoints);
-      //     totalGames += parseInt(results.games_played);
-      //     total3Made += parseInt(results.threes_made);
-      //     settotThree(total3Made);
-      //     totalAssists += parseInt(results.assists);
-      //     settotAssists(totalAssists);
-      //     totalRebounds += parseInt(results.tot_rebounds);
-      //     settotRebounds(totalRebounds);
-
-      //     pointsPerGame = Math.round((totalPoints / totalGames) * 10) / 10;
-      //     setppg(pointsPerGame);
-      // });
         if(name === "Chris Abey" || name === "chris abey" || name === "Chris abey" || name === "chris Abey"){
           setppg(30.5);
           setapg(10);
@@ -143,9 +144,6 @@ function App() {
     }
 
     // setLoading(false)
-    
-
-    
   }
 
   const [name, setName] = useState('');
