@@ -106,7 +106,7 @@ function App() {
 
     try {
       
-      fetch('http://localhost:8000/', {
+      fetch('/', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
