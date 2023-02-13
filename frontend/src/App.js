@@ -106,7 +106,7 @@ function App() {
 
     try {
       
-      fetch('/', {
+      fetch('https://worker-production-34d1.up.railway.app/', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
