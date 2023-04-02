@@ -106,7 +106,7 @@ function App() {
 
     try {
       
-      fetch('https://worker-production-34d1.up.railway.app/', {
+      fetch('https://hoopstats-production.up.railway.app/', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
@@ -180,7 +180,7 @@ function App() {
           <input autocomplete="off" spellcheck="false" name="name1" value={name}  onChange={handleChange} type="search" placeholder="Search for NBA Players"></input>
         </form>
 
-        <h1>{headingText} Statistics</h1>
+        <h1>{headingText} Season Statistics</h1>
 
         {loading ? <h2>Loading...</h2>: (
         <><p>
