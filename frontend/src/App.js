@@ -1,8 +1,10 @@
 import Footer from './Footer';
 import React, {useState} from 'react';
+import Fuse from 'fuse.js'
 import './App.css';
 import {compdict} from './dictionaries/computerdictionary';
 import {phonedict} from './dictionaries/phonedictionary';
+import players from './allPlayers';
 
 function App() {
 
@@ -19,6 +21,11 @@ function App() {
   const [tpp, settpp] = useState('0');
 
   const [loading, setLoading] = useState(false);
+
+  const [searchResults, setSearchResults] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const fuse = new Fuse(players);
 
   // let totalPoints = 0;
   // let totalGames = 0;
@@ -151,7 +158,15 @@ function App() {
 
   function handleChange(event){
     setName(event.target.value);
+    const results = fuse.search(event.target.value);
+    setSearchResults(results.map(result => result.item).slice(0, 5));
+    setShowDropdown(true);
   }
+
+  const handleDropdownItemClick = (result) => {
+    setName(result);
+    setShowDropdown(false);
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -169,6 +184,7 @@ function App() {
     makeAPICall(name);
     setHeadingText(formattedPlayer);
     setName('');
+    setShowDropdown(false);
 
   }
   
@@ -179,6 +195,21 @@ function App() {
         <form action="/" method="post" onSubmit={handleSubmit}>
           <input autocomplete="off" spellcheck="false" name="name1" value={name}  onChange={handleChange} type="search" placeholder="Search for NBA Players"></input>
         </form>
+
+        {showDropdown && (
+          <div className="search-overlay">
+            <div className="search-dropdown">
+              {searchResults.map(result => (
+                <p
+                  key={result}
+                  onClick={() => handleDropdownItemClick(result)}
+                >
+                  {result}
+                </p>
+              ))}
+            </div>
+          </div>
+        )}
 
         <h1>{headingText} Season Statistics</h1>
 

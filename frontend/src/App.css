@@ -92,3 +92,32 @@
 input {
   font-family: 'Oswald', sans-serif;
 }
+
+.search-overlay {
+  position: relative;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: -100px;
+  width: 200px;
+  background-color: #fff;
+  /* border: 1px solid #ccc; */
+  border-top: none;
+  max-height: 200
+}
+
+.search-dropdown p {
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: none;
+  color: blue;
+  margin: 5px;
+
+}
+
+.search-dropdown p:hover {
+  background-color: #ff0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
