@@ -224,7 +224,7 @@ function App() {
           Welcome to the statistics of the National Basketball Association.
         </p>
 
-        {ppg > 0 && apg > 0 && rpg > 0 && mpg > 0 && tpp > 0 ? (<div>
+        {ppg > 0 && apg > 0 && rpg > 0 && tpp > 0 ? (<div>
         <h2>Points Per Game: {ppg}</h2>
         <h2>Assists Per Game: {apg}</h2>
         <h2>Rebounds Per Game: {rpg}</h2>
