@@ -220,18 +220,18 @@ function App() {
         <h1>{headingText} Season Statistics</h1>
 
         {loading ? <h2>Loading...</h2>: (
-        <><p>
-          Welcome to the statistics of the National Basketball Association.
-        </p>
+        <>
 
-        <h1>{ppg}</h1>
-
-        {(ppg > 0 && apg > 0) ? (<div>
+        {(ppg > 0 && apg > 0 && rpg > 0) ? (<div>
         <h2>Points Per Game: {ppg}</h2>
         <h2>Assists Per Game: {apg}</h2>
         <h2>Rebounds Per Game: {rpg}</h2>
         <h2>Minutes per game: {mpg}</h2>
-        <h2>Three Point Percentage: {tpp}</h2> </div> ): <><p>
+        <h2>Three Point Percentage: {tpp}</h2> </div> ): <>
+        <p>
+          Welcome to the statistics of the National Basketball Association.
+        </p>
+        <p>
           Search for current NBA players and view their current season statistics.
         </p></>}
       </>)}
