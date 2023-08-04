@@ -127,9 +127,10 @@ function App() {
         console.log(data.ast);
         console.log(data.reb);
         console.log(data.min);
-        console.log(threePP);
 
         let threePP = Math.round(data.fg3_pct * 10000) / 100;
+
+        console.log(threePP);
 
         setppg(data.pts);
         setapg(data.ast);
