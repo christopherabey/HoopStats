@@ -224,10 +224,7 @@ function App() {
           Welcome to the statistics of the National Basketball Association.
         </p>
 
-        console.log({ppg > 0});
-        console.log({apg > 0});
-        console.log({rpg > 0});
-        console.log({tpp > 0});
+        <h1>{ppg}</h1>
 
         {ppg > 0 && apg > 0 && rpg > 0 && tpp > 0 ? (<div>
         <h2>Points Per Game: {ppg}</h2>
