@@ -123,6 +123,7 @@ function App() {
         mode:'cors'}) 
       .then(response => response.json())
       .then(data => {
+        console.log(data.pts);
 
         let threePP = Math.round(data.fg3_pct * 10000) / 100;
 
