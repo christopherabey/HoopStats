@@ -124,6 +124,10 @@ function App() {
       .then(response => response.json())
       .then(data => {
         console.log(data.pts);
+        console.log(data.ast);
+        console.log(data.reb);
+        console.log(data.min);
+        console.log(threePP);
 
         let threePP = Math.round(data.fg3_pct * 10000) / 100;
 
