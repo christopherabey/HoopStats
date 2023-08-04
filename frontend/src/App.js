@@ -113,7 +113,7 @@ function App() {
 
     try {
       
-      fetch('https://hoopstats-production.up.railway.app/', {
+      fetch('https://hoopstats-backend.onrender.com/', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
@@ -218,13 +218,15 @@ function App() {
           Welcome to the statistics of the National Basketball Association.
         </p>
 
-        <div>
+        {ppg > 0 && apg > 0 && rpg > 0 && mpg > 0 && tpp > 0 ? (<div>
         <h2>Points Per Game: {ppg}</h2>
         <h2>Assists Per Game: {apg}</h2>
         <h2>Rebounds Per Game: {rpg}</h2>
         <h2>Minutes per game: {mpg}</h2>
-        <h2>Three Point Percentage: {tpp}</h2>
-      </div></>)}
+        <h2>Three Point Percentage: {tpp}</h2> </div> ): <><p>
+          Search for current NBA players and view their current season statistics.
+        </p></>}
+      </>)}
  
       </header>
 
