@@ -102,6 +102,7 @@ input {
   top: 100%;
   left: -100px;
   width: 200px;
+  text-align: left;
   background-color: #fff;
   /* border: 1px solid #ccc; */
   border-top: none;
@@ -111,13 +112,13 @@ input {
 .search-dropdown p {
   font-family: Arial, Helvetica, sans-serif;
   text-shadow: none;
-  color: blue;
+  color: black;
   margin: 5px;
 
 }
 
 .search-dropdown p:hover {
-  background-color: #ff0;
+  background-color: #f8f9fa;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
