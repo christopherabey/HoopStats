@@ -24,5 +24,7 @@ for name in player_names:
 
 
 with open('../frontend/src/allPlayers.js', 'w') as fp:
+    fp.write('export const players = [\n')
     for name in player_names:
         fp.write('"' + name + '",\n')
+    fp.write('];\n')
