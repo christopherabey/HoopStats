@@ -4,7 +4,7 @@ import Fuse from 'fuse.js'
 import './App.css';
 import {compdict} from './dictionaries/computerdictionary';
 import {phonedict} from './dictionaries/phonedictionary';
-import players from './allPlayers';
+import {players} from './allPlayers';
 
 function App() {
 
